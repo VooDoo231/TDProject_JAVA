@@ -45,5 +45,11 @@ public class Position implements Positionable {
 		this.x = pos.getX();
 		this.y = pos.getY();
 	}
+	
+	@Override
+	public String toString() {
+		System.out.println(this.getX() + " " + this.getY());
+		return this.getX() + " " + this.getY();
+	}
 
 }
