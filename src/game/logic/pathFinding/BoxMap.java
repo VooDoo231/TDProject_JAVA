@@ -47,8 +47,8 @@ public class BoxMap {
 						y++;
 					}
 				}
-				this.hashBoxMap.replace(new Position(x, y-1).toString(),new Box(new Position(30 * x, 30 * y-1), 1));
-				this.hashBoxMap.replace(new Position(x, y).toString(),new Box(new Position(30 * x, 30 * y), 1));
+				this.hashBoxMap.replace(new Position(x, y-1).toString(),new Box(new Position(30 * x, 30 * (y-1)), 0));
+				this.hashBoxMap.replace(new Position(x, y).toString(),new Box(new Position(30 * x, 30 * y), 0));
 			}		
 	}
 

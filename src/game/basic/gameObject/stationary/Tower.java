@@ -34,7 +34,6 @@ public class Tower extends AbstractStationaryGameObject{
 	public Tower(Positionable pos) {
 		super(pos);
 		this.setSize(30, 30);
-		this.setPos(pos);
 		colPri = Color.BLACK;
 		colSec = Color.GRAY;
 	}
@@ -47,7 +46,7 @@ public class Tower extends AbstractStationaryGameObject{
 		this.setTowerCOST(tCOST);
 		this.setTowerTYP(tTYP);
 		
-		this.setSize(30, 30);
+		this.setSize(29, 29);
 		
 		
 	}	
@@ -55,13 +54,11 @@ public class Tower extends AbstractStationaryGameObject{
 	@Override
 	public void paintComponent(Graphics g) {
 		g.setColor(colSec);
-		g.fillRect(0, 0, 30, 30);
+		g.fillRect(0, 0, 29, 29);
 		g.setColor(colPri);
 		((Graphics2D)g).setStroke(new BasicStroke(10));
 		g.fillRect(5, 5, 20, 20);
-		g.drawLine(0, 0, 30, 30);
-		
-		
+		g.drawLine(0, 0, 29, 29);		
 	}
 	
 	

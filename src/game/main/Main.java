@@ -12,17 +12,11 @@ import game.logic.position.Position;
 public class Main {
 	public static void main(String args[]) {
 		int width, height;
-		width = 20;
-		height = 20;
+		width = 30;
+		height = 30;
 		BoxMap map = new BoxMap(width, height);
 		GUItdgame display = new GUItdgame(map);
 		display.run();
 		
-		for(int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				System.out.print(map.getBoxAt(i, j).consoleGrafik());
-			}
-			System.out.println("");
-		}
 	}
 }
