@@ -1,7 +1,9 @@
 package game.logic.pathFinding;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.Random;
+import java.util.Set;
 
 import game.logic.position.Position;
 
@@ -23,39 +25,41 @@ public class BoxMap {
 	private void fillMap() {
 		for (int i = 0; i < this.getWidth(); i++) {			
 			for (int j = 0; j < this.getHeight(); j++) {
-				Position tempPos = new Position(i, j);
-				Box tempBox = new Box(1, 10, 10);
-				this.hashBoxMap.put(tempPos.toString(), tempBox );
+				this.hashBoxMap.put(new Position(i, j).toString(), new Box(new Position(30 * i, 30 * j), 1));
 			}
 		}
 	}
 	
 	private void genMap() {
-		int x, y, ranInt;
+		int y, ranInt;
 		Random ranVal = new Random();
-		x = 0;
 		y = ranVal.nextInt(this.getHeight());		
 		
-		for (int i = 0; i < this.getWidth(); i++) {			
-			for (int j = 0; j < this.getHeight(); j++) {
-				if(x % 2 == 0) {
-					ranInt = ranVal.nextInt(2);
-					if (ranInt == 0){
-						if(y <= this.getHeight() && y > 0) {
-							y--;
-						}
-					}
-					else if(ranInt == 1) {
-						if(y < this.getHeight()) {
-							y++;
-						}
+		for (int x = 0; x < this.getWidth(); x++) {			
+				ranInt = ranVal.nextInt(2);
+				if (ranInt == 0){
+					if(y <= this.getHeight() && y > 0) {
+						y--;
 					}
 				}
-				this.hashBoxMap.replace(new Position(i, j).toString(),new Box(0, 10, 10));
-			}
-		}		
+				else if(ranInt == 1) {
+					if(y < this.getHeight()) {
+						y++;
+					}
+				}
+				this.hashBoxMap.replace(new Position(x, y-1).toString(),new Box(new Position(30 * x, 30 * y-1), 1));
+				this.hashBoxMap.replace(new Position(x, y).toString(),new Box(new Position(30 * x, 30 * y), 1));
+			}		
 	}
 
+	public Set<Entry<String, Box>> entrySet() {
+		return this.hashBoxMap.entrySet();
+	}
+	
+	public Box getBoxAt(String key) {
+		return this.hashBoxMap.get(key);
+	}
+	
 	public Box getBoxAt(int x, int y) {
 		return this.hashBoxMap.get(new Position(x, y).toString());
 	}

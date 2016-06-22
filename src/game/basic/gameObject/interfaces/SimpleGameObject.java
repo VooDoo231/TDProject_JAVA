@@ -2,7 +2,7 @@ package game.basic.gameObject.interfaces;
 
 import game.logic.position.interfaces.Positionable;
 
-public interface SimpleGameObject {
+public interface SimpleGameObject{
 	
 	public abstract Positionable getPos();
 	
