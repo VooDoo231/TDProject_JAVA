@@ -26,6 +26,13 @@ public class Box extends AbstractStationaryGameObject{
 		this.setHeight(29);
 	}	
 
+//	public void rezise(int width, int hight) {
+//		this.setPos(new Position((this.getPos().getX() / this.getWidth() ) * width , (this.getPos().getY() / this.getHeight()) * hight));
+//		this.setWidth(width);
+//		this.setHeight(hight);
+//		System.out.println("Rezize with: " + this.getPos().getX() + ", " + this.getPos().getY());
+//	}
+	
 	@Override
 	public String toString() {
 		return "( Lay: " + this.getLayer() + ", X: " + this.getPos().getX() + ", Y: " + this.getPos().getY() + ", HE: " + this.getHeight() + ", WI: " + this.getWidth() + ")";

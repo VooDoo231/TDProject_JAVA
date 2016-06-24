@@ -51,6 +51,10 @@ public class BoxMap {
 				this.hashBoxMap.replace(new Position(x, y).toString(),new Box(new Position(30 * x, 30 * y), 0));
 			}		
 	}
+	
+	private void findShortestPath() {
+		
+	}
 
 	public Set<Entry<String, Box>> entrySet() {
 		return this.hashBoxMap.entrySet();
@@ -62,6 +66,13 @@ public class BoxMap {
 	
 	public Box getBoxAt(int x, int y) {
 		return this.hashBoxMap.get(new Position(x, y).toString());
+	}
+	
+	public Box findBox(int posX, int posY) {
+		System.out.println( posX + "=>" + (posX / 30) * 30);
+		System.out.println( posY + "=>" + (posY / 30) * 30);
+		System.out.println(new Position(((posX / 30) * 30) / 30, ((posY / 30) * 30) / 30).toString());
+		return this.hashBoxMap.get(new Position(((posX / 30) * 30) / 30, ((posY / 30) * 30) / 30).toString());
 	}
 	
 	public int getWidth() {
